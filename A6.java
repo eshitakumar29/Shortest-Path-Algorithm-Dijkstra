@@ -1,17 +1,6 @@
 
 package a6;
 
-/* NetId(s): ek536
-
- * Name(s): Eshita Kumar
- * What I thought about this assignment:
- * I though that is was really interesting to be able to implement an algorithm
- * using an abstract algorithm to base it off of. It shows that almost anything
- * that one can write out using pseudocode can be written into actual code. I
- * also feel that I got a better understanding of how to use heaps and HashMaps
- * in different ways, as well as how to use the two data structures together.
- */
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,21 +12,10 @@ import graph.Node;
  * and other methods for an undirected graph. */
 public class A6 {
 
-    /** Replace "-1" by the time you spent on A2 in hours.<br>
-     * Example: for 3 hours 15 minutes, use 3.25<br>
-     * Example: for 4 hours 30 minutes, use 4.50<br>
-     * Example: for 5 hours, use 5 or 5.0 */
-    public static double timeSpent= 2.75;
-
     /** Return the shortest path from node v to node last <br>
      * ---or the empty list if a path does not exist. <br>
      * Note: The empty list is a list with 0 elements ---it is not "null". */
     public static List<Node> shortestPath(Node v, Node last) {
-        /* TODO Implement this method.
-         * Read the A6 assignment handout for all details.
-         * Remember, the graph is undirected.
-         * Finally, you will need to declare a HashMap. See the handout for details */
-
         // Contains an entry for each node in the frontier set. The priority of a node
         // is the length of the shortest known path from v to the node using only settled
         // node except for the last node, which is in F
@@ -65,8 +43,6 @@ public class A6 {
                 }
             }
         }
-
-        // no path from v to last --it's best to leave this at the end of the method
         return new LinkedList<>();
     }
 
@@ -116,9 +92,6 @@ public class A6 {
         synchronized (p) {
             Node w= null;
             int sum= 0;
-            // invariant: if w is null, n is the start node of the path.<br>
-            // .......... if w is not null, w is the predecessor of n on the path.
-            // .......... sum = sum of weights on edges from first node to v
             for (Node n : p) {
                 if (w != null) sum= sum + w.getEdge(n).length;
                 w= n;
